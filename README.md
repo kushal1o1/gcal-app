@@ -6,7 +6,7 @@
 
 <p align="center">Voice reminders for Google Calendar. Tap the mic, speak, done.</p>
 
-> this is just UI wrapper for gcal-svr nothing complex ,created with using Claude
+> A lightweight Flutter client for [gcal-svr](https://github.com/kushal1o1/gcal-server). The app handles the interface, and the server handles parsing and calendar integration. Built with assistance from Claude.
 
 The app records your speech, sends the text to a server, and shows a preview.
 The server turns the phrase into a Google Calendar event, and Google handles the
