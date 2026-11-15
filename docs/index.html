@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>gcal · voice reminders for Google Calendar</title>
+  <meta name="description" content="Tap the mic, speak, done. Voice reminders that land in your Google Calendar.">
+  <style>
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --text: #14161f;
+      --muted: #5b6172;
+      --blue: #1a73e8;
+      --pink: #e8488b;
+      --line: #e3e6ee;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0f1117;
+        --card: #171a23;
+        --text: #eef0f6;
+        --muted: #9aa1b4;
+        --line: #262b38;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #0f1117;
+      --card: #171a23;
+      --text: #eef0f6;
+      --muted: #9aa1b4;
+      --line: #262b38;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    main { max-width: 760px; margin: 0 auto; padding: 56px 20px 72px; }
+    .hero { text-align: center; }
+    .mark {
+      width: 84px; height: 84px; border-radius: 22px;
+      background: var(--blue); color: #fff;
+      display: inline-flex; align-items: center; justify-content: center;
+      font: 700 44px/1 system-ui, sans-serif; position: relative;
+    }
+    .mark::after {
+      content: ""; position: absolute; width: 16px; height: 16px;
+      border-radius: 50%; background: var(--pink); right: -4px; top: -4px;
+      box-shadow: 0 0 0 4px var(--bg);
+    }
+    h1 { font-size: 40px; margin: 22px 0 8px; letter-spacing: -0.02em; }
+    .tag { color: var(--muted); font-size: 18px; margin: 0; }
+    .downloads {
+      display: grid; gap: 12px; margin: 36px auto 0; max-width: 420px;
+    }
+    .btn {
+      display: block; padding: 14px 18px; border-radius: 12px;
+      background: var(--blue); color: #fff; text-decoration: none;
+      font-weight: 600; text-align: center;
+    }
+    .btn.secondary { background: var(--card); color: var(--text); border: 1px solid var(--line); }
+    .btn small { display: block; font-weight: 400; opacity: 0.8; font-size: 13px; }
+    .note { color: var(--muted); font-size: 14px; text-align: center; margin-top: 14px; }
+    section { margin-top: 56px; }
+    h2 { font-size: 22px; margin: 0 0 14px; }
+    .card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 16px; padding: 22px;
+    }
+    ol, ul { padding-left: 20px; margin: 0; }
+    li + li { margin-top: 8px; }
+    code {
+      font: 14px ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: var(--bg); border: 1px solid var(--line);
+      border-radius: 6px; padding: 1px 6px;
+    }
+    footer { margin-top: 64px; color: var(--muted); font-size: 14px; text-align: center; }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <div class="mark" aria-hidden="true">G</div>
+      <h1>gcal</h1>
+      <p class="tag">Tap the mic, speak, done. Your reminder lands in Google Calendar.</p>
+
+      <div class="downloads">
+        <a class="btn" href="https://github.com/kushal1o1/gcal-app/releases/latest/download/gcal-arm64-v8a.apk">
+          Download for Android
+          <small>64-bit · most phones from the last few years</small>
+        </a>
+        <a class="btn secondary" href="https://github.com/kushal1o1/gcal-app/releases/latest/download/gcal-armeabi-v7a.apk">
+          Older 32-bit Android
+          <small>armeabi-v7a</small>
+        </a>
+        <a class="btn secondary" href="https://github.com/kushal1o1/gcal-app/releases/latest/download/gcal-x86_64.apk">
+          Emulator / x86 devices
+          <small>x86_64</small>
+        </a>
+      </div>
+      <p class="note">
+        All builds: <a href="https://github.com/kushal1o1/gcal-app/releases">release history</a>
+      </p>
+    </header>
+
+    <section>
+      <h2>How it works</h2>
+      <div class="card">
+        <ol>
+          <li>Tap the mic and say what you need, for example <em>"remind me in 2 hours 30 minutes to leave"</em>.</li>
+          <li>Check the preview. It shows the time and whether the reminder is urgent or repeats.</li>
+          <li>Create it. The event goes into your Google Calendar, and Google sends the alert.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <h2>Install</h2>
+      <div class="card">
+        <ul>
+          <li>Download the APK that matches your phone.</li>
+          <li>Open it and allow installs from your browser when Android asks.</li>
+          <li>Open gcal, go to Settings, and enter the server address and token.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Your own server</h2>
+      <div class="card">
+        <p style="margin:0">gcal needs a server to turn your words into calendar events. The server code is open source, and you can run your own copy. See the <a href="https://github.com/kushal1o1/gcal-server">server README</a>.</p>
+      </div>
+    </section>
+
+    <footer>
+      <a href="https://github.com/kushal1o1/gcal-app">Source</a> ·
+      <a href="https://github.com/kushal1o1/gcal">CLI</a> ·
+      <a href="https://github.com/kushal1o1/gcal-server">Server</a>
+    </footer>
+  </main>
+</body>
+</html>
